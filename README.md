@@ -1,14 +1,8 @@
-# terminally-swell README
+# terminally-swell
 
-This is the README for your extension "terminally-swell". After writing up a brief description, we recommend including the following sections.
+This is an extension for VS Code that turns ctrl+alt+n (Windows) or cmd+alt+n (Mac) into "run the currently open javascript file using node in the terminal"
 
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
+<video alt="video demonstrating extension" src="assets/terminally-swell.mp4">
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
