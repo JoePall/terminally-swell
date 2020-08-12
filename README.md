@@ -2,7 +2,9 @@
 
 This is an extension for VS Code that turns ctrl+alt+n (Windows) or cmd+alt+n (Mac) into "run the currently open javascript file using node in the terminal"
 
-<video alt="video demonstrating extension" src="https://github.com/JoePall/terminally-swell/blob/master/assets/terminally-swell.mp4?raw=true">
+<video>
+    <source alt="video demonstrating extension" src="https://github.com/JoePall/terminally-swell/blob/master/assets/terminally-swell.mp4" type="video/mp4">
+</video>
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
@@ -23,24 +25,11 @@ This extension contributes the following settings:
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Only works with JavaScript files.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
+8/12/20: initial release
 -----------------------------------------------------------------------------------------------------------
 
 ## Working with Markdown
