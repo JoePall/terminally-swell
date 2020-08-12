@@ -3,6 +3,7 @@
 	"displayName": "Terminally Swell",
 	"description": "This extension will open a terminal to the path of the currently open file.",
 	"publisher": "josiahpowell",
+	"repository": {"url": "https://github.com/JoePall/terminally-swell"},
 	"author": {
 		"email": "josiahpowell@outlook.com",
 		"name": "Josiah Powell",
