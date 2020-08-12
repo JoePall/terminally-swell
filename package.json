@@ -9,6 +9,7 @@
 		"name": "Josiah Powell",
 		"url": "https://github.com/JoePall/"
 	},
+	"icon": "assets/swell.png",
 	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.47.0"
