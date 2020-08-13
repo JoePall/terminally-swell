@@ -10,7 +10,7 @@ function activate(context) {
 		if (!vscode.window.activeTextEditor) return;
 		if (!vscode.window.activeTextEditor.document) return;
 		if (!vscode.window.activeTextEditor.document.uri) return;
-		if (path.extname(vscode.window.activeTextEditor.document.uri.fsPath) !== ".js") return;
+		if (!path.extname(vscode.window.activeTextEditor.document.uri.fsPath.some(ext => ext in [".js", ".ts"]))) return;
 
 		if (vscode.window.terminals.length > 0) {
 			let existingTerminal = vscode.window.terminals[0];
@@ -18,6 +18,8 @@ function activate(context) {
 			existingTerminal.sendText("cd " + path.dirname(vscode.window.activeTextEditor.document.uri.fsPath));
 			existingTerminal.sendText("cls");
 			existingTerminal.sendText("node " + path.basename(vscode.window.activeTextEditor.document.uri.fsPath));
+
+			existingTerminal.show(false);
 			
 			return;
 		}

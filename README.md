@@ -5,11 +5,10 @@ This is an extension for VS Code that turns <code>ctrl+alt+n (Windows)</code> or
 <video style="width: 90%; border-radius: 1em; box-shadow: 0 0 1em 1em #00000009; margin: 5%;">
     <source alt="video demonstrating extension" src="https://github.com/JoePall/terminally-swell/blob/master/assets/terminally-swell.mp4?raw=true" type="video/mp4">
 </video>
-
 ## Requirements
 
-- Node must be installed
-- The active file must have .js extension.
+- Node must be installed.
+- The active file must be of type .js extension.
 
 ## Release Notes
 
