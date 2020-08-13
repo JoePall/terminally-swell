@@ -1,7 +1,7 @@
 {
 	"name": "terminally-swell",
 	"displayName": "Terminally Swell",
-	"description": "This extension will open a terminal to the path of the currently open file.",
+	"description": "Runs node on the current file in terminal.",
 	"publisher": "josiahpowell",
 	"repository": {
 		"url": "https://github.com/JoePall/terminally-swell"
