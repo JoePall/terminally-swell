@@ -10,7 +10,7 @@ function activate(context) {
 		if (!vscode.window.activeTextEditor) return;
 		if (!vscode.window.activeTextEditor.document) return;
 		if (!vscode.window.activeTextEditor.document.uri) return;
-		if (!path.extname(vscode.window.activeTextEditor.document.uri.fsPath.some(ext => ext in [".js", ".ts"]))) return;
+		if (path.extname(vscode.window.activeTextEditor.document.uri.fsPath)  !== ".js") return;
 
 		if (vscode.window.terminals.length > 0) {
 			let existingTerminal = vscode.window.terminals[0];
