@@ -5,73 +5,42 @@ const path = require("path");
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-  let disposable = vscode.commands.registerCommand(
-    "terminally-swell.terminalHere",
-    function () {
+  context.subscriptions.push(
+    vscode.commands.registerCommand("terminally-swell.runInNode", () => {
       if (!vscode.window.activeTextEditor) return;
       if (!vscode.window.activeTextEditor.document) return;
       if (!vscode.window.activeTextEditor.document.uri) return;
+      if (!path.extname(vscode.window.activeTextEditor.document.uri.fsPath).endsWith(".js")) return;
 
-      if (vscode.window.terminals.length > 0) {
-        let terminal = vscode.window.terminals.terminals;
-        terminal.show(false);
-      } else {
-        var terminal = vscode.window.createTerminal({
-          cwd: path.dirname(vscode.window.activeTextEditor.document.uri.fsPath),
-        });
+      for (let i = 0; i < vscode.window.terminals.length; i++)
+        vscode.commands.executeCommand("workbench.action.terminal.kill");
 
-        terminal.show(false);
-      }
-    }
-  );
-
-  context.subscriptions.push(disposable);
-
-  disposable = vscode.commands.registerCommand(
-    "terminally-swell.runInNode",
-    function () {
-      if (!vscode.window.activeTextEditor) return;
-      if (!vscode.window.activeTextEditor.document) return;
-      if (!vscode.window.activeTextEditor.document.uri) return;
-      if (
-        path.extname(vscode.window.activeTextEditor.document.uri.fsPath) !==
-        ".js"
-      )
-        return;
-
-      if (vscode.window.terminals.length > 0) {
-        let existingTerminal = vscode.window.terminals[0];
-
-        existingTerminal.sendText(
-          "cd " +
-            path.dirname(vscode.window.activeTextEditor.document.uri.fsPath)
-        );
-        existingTerminal.sendText("cls");
-        existingTerminal.sendText(
-          "node " +
-            path.basename(vscode.window.activeTextEditor.document.uri.fsPath)
-        );
-
-        existingTerminal.show(false);
-
-        return;
-      }
-
-      var terminal = vscode.window.createTerminal({
+      let terminal = vscode.window.createTerminal({
         cwd: path.dirname(vscode.window.activeTextEditor.document.uri.fsPath),
       });
 
-      terminal.sendText(
-        "node " +
-          path.basename(vscode.window.activeTextEditor.document.uri.fsPath)
-      );
+      terminal.sendText("node " + path.basename(vscode.window.activeTextEditor.document.uri.fsPath))
 
       terminal.show(false);
-    }
-  );
+    }));
 
-  context.subscriptions.push(disposable);
+  context.subscriptions.push(
+    vscode.commands.registerCommand("terminally-swell.terminalHere", () => {
+      if (!vscode.window.activeTextEditor) return;
+      if (!vscode.window.activeTextEditor.document) return;
+      if (!vscode.window.activeTextEditor.document.uri) return;
+      
+      for (let i = 0; i < vscode.window.terminals.length; i++)
+        vscode.commands.executeCommand("workbench.action.terminal.kill");
+
+      let terminal = vscode.window.createTerminal({
+        cwd: path.dirname(vscode.window.activeTextEditor.document.uri.fsPath),
+      });
+
+      terminal.show(false);
+    }));
 }
+
 exports.activate = activate;
 
 function deactivate() {}

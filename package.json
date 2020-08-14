@@ -1,7 +1,7 @@
 {
 	"name": "terminally-swell",
 	"displayName": "Terminally Swell",
-	"description": "Runs node on the current file in terminal.",
+	"description": "Runs node on current file or Opens Terminal Here.",
 	"publisher": "josiahpowell",
 	"repository": {
 		"url": "https://github.com/JoePall/terminally-swell"
@@ -20,22 +20,31 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:terminally-swell.runInNode"
+		"onCommand:terminally-swell.runInNode",
+		"onCommand:terminally-swell.terminalHere"
 	],
 	"main": "./extension.js",
 	"contributes": {
+		"commands": [
+			{
+				"command": "terminally-swell.runInNode",
+				"title": "Run using Node"
+			},
+			{
+				"command": "terminally-swell.terminalHere",
+				"title": "Open Terminal Here"
+			}
+		],
 		"keybindings": [
 			{
 				"command": "terminally-swell.runInNode",
 				"key": "ctrl+alt+n",
-				"mac": "cmd+alt+n",
-				"when": "editorTextFocus"
+				"mac": "cmd+alt+n"
 			},
 			{
 				"command": "terminally-swell.terminalHere",
 				"key": "ctrl+alt+p",
-				"mac": "cmd+alt+p",
-				"when": "editorTextFocus"
+				"mac": "cmd+alt+p"
 			}
 		]
 	},
