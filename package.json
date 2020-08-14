@@ -20,21 +20,31 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:terminally-swell.terminallySwell"
+		"onCommand:terminally-swell.runInNode"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "terminally-swell.terminallySwell",
-				"title": "Terminally Swell"
+				"command": "terminally-swell.runInNode",
+				"title": "Run in Terminal using Node"
+			},
+			{
+				"command": "terminally-swell.terminalHere",
+				"title": "Open Terminal Here"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "terminally-swell.terminallySwell",
+				"command": "terminally-swell.runInNode",
 				"key": "ctrl+alt+n",
 				"mac": "cmd+alt+n",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "terminally-swell.terminalHere",
+				"key": "ctrl+alt+p",
+				"mac": "cmd+alt+p",
 				"when": "editorTextFocus"
 			}
 		]
