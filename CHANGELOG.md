@@ -2,6 +2,14 @@
 
 All notable changes to the "terminally-swell" extension will be documented in this file.
 
+## 0.11.0 - 8/13/20
+
+- Remapped keybindings (Conflict issue)
+    - alt+n opens a new terminal and runs the file in node
+    - alt+p opens a new terminal to the file location
+    - alt+shift+n restarts the terminal and runs the file in node
+    - alt+shift+p restarts the terminal to the file location
+
 ## 0.10.0 - 8/13/20
 
 - Added Restart options

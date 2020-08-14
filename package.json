@@ -48,23 +48,23 @@
 		"keybindings": [
 			{
 				"command": "terminally-swell.runInNode",
-				"key": "ctrl+shift+n",
-				"mac": "cmd+shift+n"
+				"key": "alt+n",
+				"mac": "alt+n"
 			},
 			{
 				"command": "terminally-swell.terminalHere",
-				"key": "ctrl+shift+p",
-				"mac": "cmd+shift+p"
+				"key": "alt+p",
+				"mac": "alt+p"
 			},
 			{
 				"command": "terminally-swell.runInNodeHard",
-				"key": "ctrl+alt+n",
-				"mac": "cmd+alt+n"
+				"key": "alt+shift+n",
+				"mac": "alt+shift+n"
 			},
 			{
 				"command": "terminally-swell.terminalHereHard",
-				"key": "ctrl+alt+p",
-				"mac": "cmd+alt+p"
+				"key": "alt+shift+p",
+				"mac": "alt+shift+p"
 			}
 		]
 	},
