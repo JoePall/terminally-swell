@@ -13,16 +13,15 @@ function activate(context) {
       if (!vscode.window.activeTextEditor.document.uri) return;
 
       if (vscode.window.terminals.length > 0) {
-		let terminal = vscode.window.terminals[0];
-		terminal.show(false);
-	  }
-	  else {
-		  var terminal = vscode.window.createTerminal({
-			cwd: path.dirname(vscode.window.activeTextEditor.document.uri.fsPath),
-		  });
+        let terminal = vscode.window.terminals.terminals;
+        terminal.show(false);
+      } else {
+        var terminal = vscode.window.createTerminal({
+          cwd: path.dirname(vscode.window.activeTextEditor.document.uri.fsPath),
+        });
 
-		  terminal.show(false);
-	  }
+        terminal.show(false);
+      }
     }
   );
 

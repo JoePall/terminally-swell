@@ -24,16 +24,6 @@
 	],
 	"main": "./extension.js",
 	"contributes": {
-		"commands": [
-			{
-				"command": "terminally-swell.runInNode",
-				"title": "Run in Terminal using Node"
-			},
-			{
-				"command": "terminally-swell.terminalHere",
-				"title": "Open Terminal Here"
-			}
-		],
 		"keybindings": [
 			{
 				"command": "terminally-swell.runInNode",
