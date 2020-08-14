@@ -21,7 +21,9 @@
 	],
 	"activationEvents": [
 		"onCommand:terminally-swell.runInNode",
-		"onCommand:terminally-swell.terminalHere"
+		"onCommand:terminally-swell.terminalHere",
+		"onCommand:terminally-swell.runInNodeHard",
+		"onCommand:terminally-swell.terminalHereHard"
 	],
 	"main": "./extension.js",
 	"contributes": {
@@ -33,16 +35,34 @@
 			{
 				"command": "terminally-swell.terminalHere",
 				"title": "Open Terminal Here"
+			},
+			{
+				"command": "terminally-swell.runInNodeHard",
+				"title": "Run using Node (Restart)"
+			},
+			{
+				"command": "terminally-swell.terminalHereHard",
+				"title": "Open Terminal Here (Restart)"
 			}
 		],
 		"keybindings": [
 			{
 				"command": "terminally-swell.runInNode",
+				"key": "ctrl+shift+n",
+				"mac": "cmd+shift+n"
+			},
+			{
+				"command": "terminally-swell.terminalHere",
+				"key": "ctrl+shift+p",
+				"mac": "cmd+shift+p"
+			},
+			{
+				"command": "terminally-swell.runInNodeHard",
 				"key": "ctrl+alt+n",
 				"mac": "cmd+alt+n"
 			},
 			{
-				"command": "terminally-swell.terminalHere",
+				"command": "terminally-swell.terminalHereHard",
 				"key": "ctrl+alt+p",
 				"mac": "cmd+alt+p"
 			}
