@@ -1,10 +1,10 @@
 # Terminally Swell
 
 Visual Studio Code Extension that provides shortcut keys for the terminal.
-- <code>alt+n</code> will run the current file in a new terminal using node.
-- <code>alt+p</code> will open a new terminal to the current file location 
-- <code>alt+shift+n</code> will restart terminal and run the current file in a new terminal using node
-- <code>alt+shift+p</code> will restart terminal and open a new terminal to the current file location
+- <code>alt+n</code> / <code>option+n</code> will run the current file in a new terminal using node.
+- <code>alt+p</code> / <code>option+p</code> will open a new terminal to the current file location 
+- <code>alt+shift+n</code> / <code>option+shift+n</code> will restart terminal and run the current file in a new terminal using node
+- <code>alt+shift+p</code> / <code>option+shift+p</code> will restart terminal and open a new terminal to the current file location
 
 <video style="width: 90%; border-radius: 1em; box-shadow: 0 0 1em 1em #00000009; margin: 5%;">
     <source alt="video demonstrating extension" src="https://github.com/JoePall/terminally-swell/blob/master/assets/terminally-swell.mp4?raw=true" type="video/mp4">

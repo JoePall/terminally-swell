@@ -43,19 +43,19 @@ function activate(context) {
 }
 
 function newTerminal() {
-  let terminal = vscode.window.createTerminal({
+  return vscode.window.createTerminal({
     cwd: path.dirname(vscode.window.activeTextEditor.document.uri.fsPath),
+    show: false
   });
+}
 
-  terminal.show(false);
-
-  return terminal;
+function closeTerminals() {
+  for (let i = 0; i < vscode.window.terminals.length; i++)
+    vscode.commands.executeCommand("workbench.action.terminal.kill");
 }
 
 function restartTerminal() {
-  for (let i = 0; i < vscode.window.terminals.length; i++)
-    vscode.commands.executeCommand("workbench.action.terminal.kill");
-
+  closeTerminals();
   return newTerminal();
 }
 
