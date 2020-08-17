@@ -21,8 +21,10 @@
 	],
 	"activationEvents": [
 		"onCommand:terminally-swell.runInNode",
-		"onCommand:terminally-swell.terminalHere",
 		"onCommand:terminally-swell.runInNodeHard",
+		"onCommand:terminally-swell.npmTest",
+		"onCommand:terminally-swell.npmTestHard",
+		"onCommand:terminally-swell.terminalHere",
 		"onCommand:terminally-swell.terminalHereHard"
 	],
 	"main": "./extension.js",
@@ -33,12 +35,20 @@
 				"title": "Run using Node"
 			},
 			{
-				"command": "terminally-swell.terminalHere",
-				"title": "Open Terminal Here"
-			},
-			{
 				"command": "terminally-swell.runInNodeHard",
 				"title": "Run using Node (Restart)"
+			},
+			{
+				"command": "terminally-swell.npmTest",
+				"title": "Test"
+			},
+			{
+				"command": "terminally-swell.npmTestHard",
+				"title": "Test (Restart)"
+			},
+			{
+				"command": "terminally-swell.terminalHere",
+				"title": "Open Terminal Here"
 			},
 			{
 				"command": "terminally-swell.terminalHereHard",

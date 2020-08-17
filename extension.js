@@ -30,6 +30,22 @@ function activate(context) {
   );
 
   context.subscriptions.push(
+    vscode.commands.registerCommand("terminally-swell.npmTest", () => {
+      if (!hasActiveUri()) return;
+
+      newTerminal().sendText("npm run test");
+    })
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand("terminally-swell.npmTestHard", () => {
+      if (!hasActiveUri()) return;
+
+      restartTerminal().sendText("npm run test");
+    })
+  );
+
+  context.subscriptions.push(
     vscode.commands.registerCommand("terminally-swell.terminalHere", () => {
       if (hasActiveUri()) newTerminal();
     })
