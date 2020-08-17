@@ -62,14 +62,24 @@
 				"mac": "alt+n"
 			},
 			{
-				"command": "terminally-swell.terminalHere",
-				"key": "alt+p",
-				"mac": "alt+p"
-			},
-			{
 				"command": "terminally-swell.runInNodeHard",
 				"key": "alt+shift+n",
 				"mac": "alt+shift+n"
+			},
+			{
+				"command": "terminally-swell.npmTest",
+				"key": "alt+t",
+				"mac": "alt+t"
+			},
+			{
+				"command": "terminally-swell.npmTestHard",
+				"key": "alt+shift+t",
+				"mac": "alt+shift+t"
+			},
+			{
+				"command": "terminally-swell.terminalHere",
+				"key": "alt+p",
+				"mac": "alt+p"
 			},
 			{
 				"command": "terminally-swell.terminalHereHard",
