@@ -10,7 +10,9 @@ function activate(context) {
       if (!hasActiveUri()) return;
       if (!vscode.window.activeTextEditor.document.uri.fsPath.type == ".js") return;
 
-      newTerminal().sendText(
+      var terminal = newTerminal();
+      delay(200);
+      terminal.sendText(
         "node " +
         path.basename(vscode.window.activeTextEditor.document.uri.fsPath)
       );
@@ -22,7 +24,9 @@ function activate(context) {
       if (!hasActiveUri()) return;
       if (!vscode.window.activeTextEditor.document.uri.fsPath.type == ".js") return;
 
-      delay(restartTerminal(), 200).sendText(
+      var terminal = restartTerminal();
+      delay(200);
+      terminal.sendText(
         "node " +
         path.basename(vscode.window.activeTextEditor.document.uri.fsPath)
       );
@@ -33,7 +37,9 @@ function activate(context) {
     vscode.commands.registerCommand("terminally-swell.npmTest", () => {
       if (!hasActiveUri()) return;
 
-      newTerminal().sendText("npm run test");
+      var terminal = newTerminal();
+      delay(200);
+      terminal.sendText("npm run test");
     })
   );
 
@@ -41,7 +47,9 @@ function activate(context) {
     vscode.commands.registerCommand("terminally-swell.npmTestHard", () => {
       if (!hasActiveUri()) return;
 
-      delay(restartTerminal(), 200).sendText("npm run test");
+      var terminal = restartTerminal();
+      delay(200);
+      terminal.sendText("npm run test");
     })
   );
 
@@ -49,7 +57,9 @@ function activate(context) {
     vscode.commands.registerCommand("terminally-swell.herokuPush", () => {
       if (!hasActiveUri()) return;
 
-      delay(newTerminal(), 200).sendText("git push heroku master");
+      var terminal = newTerminal();
+      delay(200);
+      terminal.sendText("git push heroku master");
     })
   );
 
@@ -57,7 +67,9 @@ function activate(context) {
     vscode.commands.registerCommand("terminally-swell.herokuPushHard", () => {
       if (!hasActiveUri()) return;
 
-      delay(restartTerminal(), 200).sendText("git push heroku master");    
+      var terminal = restartTerminal();
+      delay(200);
+      terminal.sendText("git push heroku master");    
     })
   );
 
@@ -107,15 +119,17 @@ function hasActiveUri() {
   return result;
 }
 
-function delay(context, milliseconds) {
+function delay(milliseconds) {
   setTimeout(() => {
-    return context;
+    return;
   }, milliseconds);
 }
 
 exports.activate = activate;
 
-function deactivate() { }
+function deactivate() {
+
+}
 
 module.exports = {
   activate,

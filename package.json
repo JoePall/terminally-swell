@@ -32,39 +32,39 @@
 		"commands": [
 			{
 				"command": "terminally-swell.runInNode",
-				"title": "Run using Node"
+				"title": "Swell: Run using Node"
 			},
 			{
 				"command": "terminally-swell.runInNodeHard",
-				"title": "Run using Node (Restart)"
+				"title": "Swell: Run using Node (Restart)"
 			},
 			{
 				"command": "terminally-swell.herokuPush",
-				"title": "Push git master to Heroku"
+				"title": "Swell: Push git master to Heroku"
 			},
 			{
 				"command": "terminally-swell.herokuPushHard",
-				"title": "Push git master to Heroku (Restart)"
+				"title": "Swell: Push git master to Heroku (Restart)"
 			},
 			{
 				"command": "terminally-swell.npmTest",
-				"title": "Test"
+				"title": "Swell: Test"
 			},
 			{
 				"command": "terminally-swell.npmTestHard",
-				"title": "Test (Restart)"
+				"title": "Swell: Test (Restart)"
 			},
 			{
 				"command": "terminally-swell.terminalHere",
-				"title": "Open Terminal Here"
+				"title": "Swell: Open Terminal Here"
 			},
 			{
 				"command": "terminally-swell.terminalHereHard",
-				"title": "Open Terminal Here (Restart)"
+				"title": "Swell: Open Terminal Here (Restart)"
 			},
 			{
 				"command": "terminally-swell.discardAllTerminals",
-				"title": "Restart Terminals"
+				"title": "Swell: Restart Terminals"
 			}
 		],
 		"keybindings": [
@@ -75,8 +75,8 @@
 			},
 			{
 				"command": "terminally-swell.runInNodeHard",
-				"key": "alt+shift+n",
-				"mac": "alt+shift+n"
+				"key": "shift+alt+n",
+				"mac": "shift+alt+n"
 			},
 			{
 				"command": "terminally-swell.npmTest",
@@ -85,8 +85,8 @@
 			},
 			{
 				"command": "terminally-swell.npmTestHard",
-				"key": "alt+shift+t",
-				"mac": "alt+shift+t"
+				"key": "shift+alt+t",
+				"mac": "shift+alt+t"
 			},
 			{
 				"command": "terminally-swell.herokuPush",
@@ -95,8 +95,8 @@
 			},
 			{
 				"command": "terminally-swell.herokuPushHard",
-				"key": "alt+shift+u",
-				"mac": "alt+shift+u"
+				"key": "shift+alt+u",
+				"mac": "shift+alt+u"
 			},
 			{
 				"command": "terminally-swell.terminalHere",
@@ -105,8 +105,8 @@
 			},
 			{
 				"command": "terminally-swell.terminalHereHard",
-				"key": "alt+shift+p",
-				"mac": "alt+shift+p"
+				"key": "shift+alt+p",
+				"mac": "shift+alt+p"
 			},
 			{
 				"command": "terminally-swell.discardAllTerminals",
