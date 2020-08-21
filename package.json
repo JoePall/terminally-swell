@@ -39,6 +39,14 @@
 				"title": "Run using Node (Restart)"
 			},
 			{
+				"command": "terminally-swell.herokuPush",
+				"title": "Push git master to Heroku"
+			},
+			{
+				"command": "terminally-swell.herokuPushHard",
+				"title": "Push git master to Heroku (Restart)"
+			},
+			{
 				"command": "terminally-swell.npmTest",
 				"title": "Test"
 			},
@@ -53,6 +61,10 @@
 			{
 				"command": "terminally-swell.terminalHereHard",
 				"title": "Open Terminal Here (Restart)"
+			},
+			{
+				"command": "terminally-swell.discardAllTerminals",
+				"title": "Restart Terminals"
 			}
 		],
 		"keybindings": [
@@ -77,6 +89,16 @@
 				"mac": "alt+shift+t"
 			},
 			{
+				"command": "terminally-swell.herokuPush",
+				"key": "alt+u",
+				"mac": "alt+u"
+			},
+			{
+				"command": "terminally-swell.herokuPushHard",
+				"key": "alt+shift+u",
+				"mac": "alt+shift+u"
+			},
+			{
 				"command": "terminally-swell.terminalHere",
 				"key": "alt+p",
 				"mac": "alt+p"
@@ -85,6 +107,11 @@
 				"command": "terminally-swell.terminalHereHard",
 				"key": "alt+shift+p",
 				"mac": "alt+shift+p"
+			},
+			{
+				"command": "terminally-swell.discardAllTerminals",
+				"key": "ctrl+shift+w",
+				"mac": "ctrl+shift+w"
 			}
 		]
 	},

@@ -12,7 +12,7 @@ function activate(context) {
 
       newTerminal().sendText(
         "node " +
-          path.basename(vscode.window.activeTextEditor.document.uri.fsPath)
+        path.basename(vscode.window.activeTextEditor.document.uri.fsPath)
       );
     })
   );
@@ -22,9 +22,9 @@ function activate(context) {
       if (!hasActiveUri()) return;
       if (!vscode.window.activeTextEditor.document.uri.fsPath.type == ".js") return;
 
-      restartTerminal().sendText(
+      delay(restartTerminal(), 200).sendText(
         "node " +
-          path.basename(vscode.window.activeTextEditor.document.uri.fsPath)
+        path.basename(vscode.window.activeTextEditor.document.uri.fsPath)
       );
     })
   );
@@ -41,7 +41,23 @@ function activate(context) {
     vscode.commands.registerCommand("terminally-swell.npmTestHard", () => {
       if (!hasActiveUri()) return;
 
-      restartTerminal().sendText("npm run test");
+      delay(restartTerminal(), 200).sendText("npm run test");
+    })
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand("terminally-swell.herokuPush", () => {
+      if (!hasActiveUri()) return;
+
+      delay(newTerminal(), 200).sendText("git push heroku master");
+    })
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand("terminally-swell.herokuPushHard", () => {
+      if (!hasActiveUri()) return;
+
+      delay(restartTerminal(), 200).sendText("git push heroku master");    
     })
   );
 
@@ -54,6 +70,12 @@ function activate(context) {
   context.subscriptions.push(
     vscode.commands.registerCommand("terminally-swell.terminalHereHard", () => {
       if (hasActiveUri()) restartTerminal();
+    })
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand("terminally-swell.discardAllTerminals", () => {
+      restartTerminal();
     })
   );
 }
@@ -85,9 +107,15 @@ function hasActiveUri() {
   return result;
 }
 
+function delay(context, milliseconds) {
+  setTimeout(() => {
+    return context;
+  }, milliseconds);
+}
+
 exports.activate = activate;
 
-function deactivate() {}
+function deactivate() { }
 
 module.exports = {
   activate,
