@@ -20,6 +20,10 @@
 		"Other"
 	],
 	"activationEvents": [
+		"onCommand:terminally-swell.node",
+		"onCommand:terminally-swell.nodeHard",
+		"onCommand:terminally-swell.npmInstall",
+		"onCommand:terminally-swell.npmInstallHard",
 		"onCommand:terminally-swell.npmStart",
 		"onCommand:terminally-swell.npmStartHard",
 		"onCommand:terminally-swell.npmTest",
@@ -34,40 +38,52 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "terminally-swell.npmStart",
-				"title": "terminal: npm start on current folder"
-			},
-			{
-				"command": "terminally-swell.npmStartHard",
-				"title": "terminal: npm start on current folder - Restart"
-			},
-			{
-				"command": "terminally-swell.npmTest",
-				"title": "terminal: npm test on current folder"
-			},
-			{
-				"command": "terminally-swell.npmTestHard",
-				"title": "terminal: npm test on current folder - Restart"
-			},
-			{
-				"command": "terminally-swell.herokuPush",
-				"title": "terminal: git heroku push master"
-			},
-			{
-				"command": "terminally-swell.herokuPushHard",
-				"title": "terminal: git heroku push master - Restart"
-			},
-			{
 				"command": "terminally-swell.node",
-				"title": "terminal: (current location of open file)"
+				"title": "swell: Opens a new terminal with \"node current.file\""
 			},
 			{
 				"command": "terminally-swell.nodeHard",
-				"title": "terminal: (current location of open file) - Restart"
+				"title": "swell: Closes all terminals and opens a new terminal with \"node current.file\""
 			},
 			{
-				"command": "terminally-swell.discardAllTerminals",
-				"title": "Swell: Restart Terminals"
+				"command": "terminally-swell.npmInstall",
+				"title": "swell: Opens a new terminal with \"npm install\" at the nearest packages path"
+			},
+			{
+				"command": "terminally-swell.npmInstallHard",
+				"title": "swell: Closes all terminals and opens a new terminal with \"npm install\" at the nearest packages path"
+			},
+			{
+				"command": "terminally-swell.npmStart",
+				"title": "swell: Opens a new terminal with \"npm start\" at the nearest packages path"
+			},
+			{
+				"command": "terminally-swell.npmStartHard",
+				"title": "swell: Closes all terminals and opens a new terminal with \"npm start\" at the nearest packages path"
+			},
+			{
+				"command": "terminally-swell.npmTest",
+				"title": "swell: Opens a new terminal with \"npm test\" at the nearest packages path"
+			},
+			{
+				"command": "terminally-swell.npmTestHard",
+				"title": "swell: Closes all terminals and opens a new terminal with \"npm test\" at the nearest packages path"
+			},
+			{
+				"command": "terminally-swell.herokuPush",
+				"title": "swell: Opens a new terminal with \"git push heroku master\""
+			},
+			{
+				"command": "terminally-swell.herokuPushHard",
+				"title": "swell: Closes all terminals and opens a new terminal with \"git push heroku master\""
+			},
+			{
+				"command": "terminally-swell.openCurrent",
+				"title": "swell: Opens a new terminal at the current files path"
+			},
+			{
+				"command": "terminally-swell.openCurrentHard",
+				"title": "swell: Closes all terminal and opens a new terminal at the current files path"
 			}
 		],
 		"keybindings": [
