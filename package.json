@@ -93,7 +93,7 @@
 				"mac": "shift+alt+n"
 			},
 			{
-				"command": "terminally-swell.npmStart",
+				"command": "terminally-swell.npmStartHard",
 				"key": "shift+alt+s",
 				"mac": "shift+alt+s"
 			},
