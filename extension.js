@@ -1,122 +1,81 @@
 const vscode = require("vscode");
 const path = require("path");
+const fs = require("fs");
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-  context.subscriptions.push(
-    vscode.commands.registerCommand("terminally-swell.runInNode", () => {
+  addCommand("terminally-swell.node", () => {
       if (!hasActiveUri()) return;
       if (!vscode.window.activeTextEditor.document.uri.fsPath.type == ".js") return;
-
-      var terminal = newTerminal();
-      delay(200);
-      terminal.sendText(
-        "node " +
-        path.basename(vscode.window.activeTextEditor.document.uri.fsPath)
-      );
-    })
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand("terminally-swell.runInNodeHard", () => {
+      
+      launchTerminal("node " + path.basename(vscode.window.activeTextEditor.document.uri.fsPath), false, true, true);
+    });
+    
+  addCommand("terminally-swell.nodeHard", () => {
       if (!hasActiveUri()) return;
       if (!vscode.window.activeTextEditor.document.uri.fsPath.type == ".js") return;
+      
+      launchTerminal("node " + path.basename(vscode.window.activeTextEditor.document.uri.fsPath), true, true, true);
+    });
+  addCommand("terminally-swell.npmInstall", () => launchTerminal("npm i", false, false, false));
+  addCommand("terminally-swell.npmInstallHard", () => launchTerminal("npm i", true, false, false));
+  addCommand("terminally-swell.npmStart", () => launchTerminal("npm start", false, false, false));
+  addCommand("terminally-swell.npmStartHard", () => launchTerminal("npm start", true, false, false));
+  addCommand("terminally-swell.npmTest", () => launchTerminal("npm test", false, false, false, true));
+  addCommand("terminally-swell.npmTestHard", () => launchTerminal("npm test", true, false, false, true));
+  addCommand("terminally-swell.herokuPush", () => launchTerminal("git push heroku master"));
+  addCommand("terminally-swell.herokuPushHard", () => launchTerminal("git push heroku master", true));
+  addCommand("terminally-swell.openCurrent", () => launchTerminal("", false, true));
+  addCommand("terminally-swell.openCurrentHard", () => launchTerminal("", true, true));
+  addCommand("terminally-swell.discardAllTerminals", () => launchTerminal("", true));
 
-      var terminal = restartTerminal();
-      delay(200);
-      terminal.sendText(
-        "node " +
-        path.basename(vscode.window.activeTextEditor.document.uri.fsPath)
-      );
-    })
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand("terminally-swell.npmTest", () => {
-      if (!hasActiveUri()) return;
-
-      var terminal = newTerminal();
-      delay(200);
-      terminal.sendText("npm run test");
-    })
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand("terminally-swell.npmTestHard", () => {
-      if (!hasActiveUri()) return;
-
-      var terminal = restartTerminal();
-      delay(200);
-      terminal.sendText("npm run test");
-    })
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand("terminally-swell.herokuPush", () => {
-      if (!hasActiveUri()) return;
-
-      var terminal = newTerminal();
-      delay(200);
-      terminal.sendText("git push heroku master");
-    })
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand("terminally-swell.herokuPushHard", () => {
-      if (!hasActiveUri()) return;
-
-      var terminal = restartTerminal();
-      delay(200);
-      terminal.sendText("git push heroku master");    
-    })
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand("terminally-swell.terminalHere", () => {
-      if (hasActiveUri()) newTerminal();
-    })
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand("terminally-swell.terminalHereHard", () => {
-      if (hasActiveUri()) restartTerminal();
-    })
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand("terminally-swell.discardAllTerminals", () => {
-      restartTerminal();
-    })
-  );
+  function addCommand(name, command) {
+    context.subscriptions.push(vscode.commands.registerCommand(name, command));
+  }
 }
 
-function newTerminal() {
+function launchTerminal(command, needsRestart = false, needsUri = false, needsJs = false, needsPackages = false) {
+  if (needsUri && !hasActiveUri()) return;
+  if (needsJs && !vscode.window.activeTextEditor.document.uri.fsPath.type == ".js") return;
+  let cwd = vscode.workspace.workspaceFolders[0].uri.fsPath;
+  let cfd = path.dirname(vscode.window.activeTextEditor.document.uri.fsPath);
+  if (needsPackages) cwd = getNearestPackagePath(cfd, cwd);
+  else if (needsUri) cwd = cfd;
+
+  let terminal = (needsRestart) ? restartTerminal(cwd) : newTerminal(cwd);
+
+  delay(200); 
+  terminal.sendText(command);
+  terminal.show("false");
+}
+
+function getNearestPackagePath(cfd, cwd) {
+  let files = fs.readdirSync(cfd);
+
+  if (files.some(item => item === "package.json")) return cfd;
+  if (cwd.length < cfd.length) return cwd;
+  let result = cfd.split("\\").forEach(part => result.push(part));
+  result.pop();
+  cfd = result.join("\\");
+}
+
+function newTerminal(path) {
   return vscode.window.createTerminal({
-    cwd: path.dirname(vscode.window.activeTextEditor.document.uri.fsPath),
-    show: false
+    cwd: path,
+    show: true
   });
 }
 
-function closeTerminals() {
+function restartTerminal(path) {
   for (let i = 0; i < vscode.window.terminals.length; i++)
     vscode.commands.executeCommand("workbench.action.terminal.kill");
-}
-
-function restartTerminal() {
-  closeTerminals();
-  return newTerminal();
+  return newTerminal(path);
 }
 
 function hasActiveUri() {
-  var result = true;
-
-  result = result && vscode.window.activeTextEditor;
-  result = result && vscode.window.activeTextEditor.document;
-  result = result && vscode.window.activeTextEditor.document.uri;
-
-  return result;
+  return vscode.window.activeTextEditor.document.uri.length > 0;
 }
 
 function delay(milliseconds) {

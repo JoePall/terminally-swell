@@ -1,15 +1,14 @@
 # Terminally Swell
 
-Visual Studio Code Extension that provides shortcut keys for the terminal.
-- <code>alt+n</code> / <code>option+n</code> will run "node {currentFile}" in the terminal.
-- <code>alt+t</code> / <code>option+t</code> will run "npm run test" in the terminal (experimental).
-- <code>alt+u</code> / <code>option+u</code> will run "git push heroku master" in the terminal (experimental)
-- <code>alt+p</code> / <code>option+p</code> will open a new terminal to the current file location.
-- <b>Pressing the shift key with any of the previous combinations will restart the terminal then proceed with the specified command.</b>
+## Description
 
-<video style="width: 90%; border-radius: 1em; box-shadow: 0 0 1em 1em #00000009; margin: 5%;">
-    <source alt="video demonstrating extension" src="https://github.com/JoePall/terminally-swell/blob/master/assets/terminally-swell.mp4?raw=true" type="video/mp4">
-</video>
+Visual Studio Code Extension that provides shortcut keys for a new terminal.
+
+- <code>shift+alt+s / shift+option+s</code> will run "npm start" in a new terminal on the nearest directory containing a package.json file
+- <code>shift+alt+n / shift+option+n</code> will run "node {currentFile}" in a new terminal.
+- <code>shift+alt+t / shift+option+t</code> will run "npm run test" in a new terminal (experimental).
+- <code>shift+alt+u / shift+option+u</code> will run "git push heroku master" in a new terminal (experimental)
+- <code>shift+alt+p / shift+option+p</code> will open a new terminal to the current file location.
 
 ## Requirements
 
@@ -18,5 +17,9 @@ Visual Studio Code Extension that provides shortcut keys for the terminal.
 - Heroku must be installed for heroku commands.
 - npm must be installed for npm commands.
 
+## Author
 
-<p style="margin: auto; text-align: center;"><b>Made with ❤ and ☕ from Overbrook, KS</b></p>
+<p>Author: <a href="https://joepall.github.io/Portfolio/">JOSIAH <b>POWELL</b></a></p>
+<p>GitHub: <a href="https://github.com/JoePall">JoePall</a></p>
+
+<b>Made with ❤ and ☕ from Overbrook, KS</b>

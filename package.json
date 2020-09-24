@@ -20,47 +20,50 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:terminally-swell.runInNode",
-		"onCommand:terminally-swell.runInNodeHard",
+		"onCommand:terminally-swell.npmStart",
+		"onCommand:terminally-swell.npmStartHard",
 		"onCommand:terminally-swell.npmTest",
 		"onCommand:terminally-swell.npmTestHard",
-		"onCommand:terminally-swell.terminalHere",
-		"onCommand:terminally-swell.terminalHereHard"
+		"onCommand:terminally-swell.herokuPush",
+		"onCommand:terminally-swell.herokuPushHard",
+		"onCommand:terminally-swell.openCurrent",
+		"onCommand:terminally-swell.openCurrentHard",
+		"onCommand:terminally-swell.discardAllTerminals"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "terminally-swell.runInNode",
-				"title": "Swell: Run using Node"
+				"command": "terminally-swell.npmStart",
+				"title": "terminal: npm start on current folder"
 			},
 			{
-				"command": "terminally-swell.runInNodeHard",
-				"title": "Swell: Run using Node (Restart)"
-			},
-			{
-				"command": "terminally-swell.herokuPush",
-				"title": "Swell: Push git master to Heroku"
-			},
-			{
-				"command": "terminally-swell.herokuPushHard",
-				"title": "Swell: Push git master to Heroku (Restart)"
+				"command": "terminally-swell.npmStartHard",
+				"title": "terminal: npm start on current folder - Restart"
 			},
 			{
 				"command": "terminally-swell.npmTest",
-				"title": "Swell: Test"
+				"title": "terminal: npm test on current folder"
 			},
 			{
 				"command": "terminally-swell.npmTestHard",
-				"title": "Swell: Test (Restart)"
+				"title": "terminal: npm test on current folder - Restart"
 			},
 			{
-				"command": "terminally-swell.terminalHere",
-				"title": "Swell: Open Terminal Here"
+				"command": "terminally-swell.herokuPush",
+				"title": "terminal: git heroku push master"
 			},
 			{
-				"command": "terminally-swell.terminalHereHard",
-				"title": "Swell: Open Terminal Here (Restart)"
+				"command": "terminally-swell.herokuPushHard",
+				"title": "terminal: git heroku push master - Restart"
+			},
+			{
+				"command": "terminally-swell.node",
+				"title": "terminal: (current location of open file)"
+			},
+			{
+				"command": "terminally-swell.nodeHard",
+				"title": "terminal: (current location of open file) - Restart"
 			},
 			{
 				"command": "terminally-swell.discardAllTerminals",
@@ -69,19 +72,19 @@
 		],
 		"keybindings": [
 			{
-				"command": "terminally-swell.runInNode",
-				"key": "alt+n",
-				"mac": "alt+n"
-			},
-			{
-				"command": "terminally-swell.runInNodeHard",
+				"command": "terminally-swell.nodeHard",
 				"key": "shift+alt+n",
 				"mac": "shift+alt+n"
 			},
 			{
-				"command": "terminally-swell.npmTest",
-				"key": "alt+t",
-				"mac": "alt+t"
+				"command": "terminally-swell.npmStart",
+				"key": "shift+alt+s",
+				"mac": "shift+alt+s"
+			},
+			{
+				"command": "terminally-swell.npmInstallHard",
+				"key": "shift+alt+i",
+				"mac": "shift+alt+i"
 			},
 			{
 				"command": "terminally-swell.npmTestHard",
@@ -89,22 +92,12 @@
 				"mac": "shift+alt+t"
 			},
 			{
-				"command": "terminally-swell.herokuPush",
-				"key": "alt+u",
-				"mac": "alt+u"
-			},
-			{
 				"command": "terminally-swell.herokuPushHard",
-				"key": "shift+alt+u",
-				"mac": "shift+alt+u"
+				"key": "shift+alt+h",
+				"mac": "shift+alt+h"
 			},
 			{
-				"command": "terminally-swell.terminalHere",
-				"key": "alt+p",
-				"mac": "alt+p"
-			},
-			{
-				"command": "terminally-swell.terminalHereHard",
+				"command": "terminally-swell.openCurrentHard",
 				"key": "shift+alt+p",
 				"mac": "shift+alt+p"
 			},
